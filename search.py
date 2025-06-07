@@ -1,12 +1,16 @@
-# Get input from the user
-main_string = input("Enter the main string: ")
-search_string = input("Enter the string to search for: ")
-
-# Search for the substring
-position = main_string.find(search_string)
-
-# Display result
-if position != -1:
-    print(f"'{search_string}' found at position {position}")
-else:
-    print(f"'{search_string}' not found in the main string.")
+class search:
+    def __init__(self):
+        self.mstr = None
+        self.sstr = None
+    def input(self):
+        self.mstr = input("Enter the main string: ")
+        self.sstr = input("Enter the string to search for: ")
+    def position(self):
+        pos = self.mstr.find(self.sstr)
+        if pos != -1:
+            print(f"'{self.sstr}' found at position {pos}")
+        else:
+            print(f"'{self.sstr}' not found in the main string.")
+s = search()
+s.input()
+s.position()
