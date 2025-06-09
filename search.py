@@ -1,5 +1,4 @@
 class search:
-<<<<<<< HEAD
     def __init__(self, main_string = None, search_string = None):
         self.main_string = main_string
         self.search_string = search_string
@@ -19,20 +18,3 @@ if __name__ == "__main__":
     s.get_input()
     result = s.perform_search()
     print(result)
-=======
-    def __init__(self):
-        self.mstr = None
-        self.sstr = None
-    def input(self):
-        self.mstr = input("Enter the main string: ")
-        self.sstr = input("Enter the string to search for: ")
-    def position(self):
-        pos = self.mstr.find(self.sstr)
-        if pos != -1:
-            print(f"'{self.sstr}' found at position {pos}")
-        else:
-            print(f"'{self.sstr}' not found in the main string.")
-s = search()
-s.input()
-s.position()
->>>>>>> 09b2586729cc72d33220e4ab7919364191896bf4
