@@ -1,24 +1,27 @@
 import unittest
-from unittest.mock import patch
 from search import search  
 
-class TestSearchClass(unittest.TestCase):
-    
-    @patch('builtins.input', side_effect=["hello world", "world"])
-    def test_found(self, mock_input):
-        s = search()
-        s.input()
-        with patch('builtins.print') as mock_print:
-            s.position()
-            mock_print.assert_called_with("'world' found at position 6")
-    
-    @patch('builtins.input', side_effect=["hello world", "python"])
-    def test_not_found(self, mock_input):
-        s = search()
-        s.input()
-        with patch('builtins.print') as mock_print:
-            s.position()
-            mock_print.assert_called_with("'python' not found in the main string.")
+class TestSearch(unittest.TestCase):
+
+    def test_found_case(self):
+        s = search("hello world", "world")
+        result = s.perform_search()
+        self.assertEqual(result, "'world' found at position 6")
+
+    def test_not_found_case(self):
+        s = search("hello world", "python")
+        result = s.perform_search()
+        self.assertEqual(result, "'python' not found in the main string.")
+
+    def test_empty_search_string(self):
+        s = search("hello", "")
+        result = s.perform_search()
+        self.assertEqual(result, "'' found at position 0")  
+
+    def test_empty_main_string(self):
+        s = search("", "any")
+        result = s.perform_search()
+        self.assertEqual(result, "'any' not found in the main string.")
 
 if __name__ == '__main__':
     unittest.main()
