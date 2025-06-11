@@ -21,7 +21,8 @@ search_word = "Book"
 found_nodes = search_word_in_nodes(search_word, nodes)
 if found_nodes:
     for node_index, line_found, node in found_nodes:
-        print(f"Found in node {node_index} in line {line_found}")
-        print(f"Full node: {node}")
+        print(f"Found in node {node_index} in {line_found}")
+        print(f"Line 1: {node.line1}")
+        print(f"Line 2: {node.line2}")
 else:
     print("Word not found in any node")
